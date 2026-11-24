@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#102c25"><title>Vanité Agenda</title>
+<link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header><div class="brand"><span class="monogram">V</span><div><b>VANITÉ</b><small>NAILS BAR SPA · AGENDA</small></div></div><div class="sync" id="sync">Conectando…</div></header>
+<main>
+<section class="topline"><div><p class="eyebrow">AGENDA COMPARTIDA</p><h1 id="monthTitle">Calendario</h1></div><div class="monthnav"><button id="prev">‹</button><button id="today">Hoy</button><button id="next">›</button></div></section>
+<section class="calendar card"><div class="weekdays"><span>LU</span><span>MA</span><span>MI</span><span>JU</span><span>VI</span><span>SÁ</span><span>DO</span></div><div class="days" id="days"></div></section>
+<section class="appointments"><div class="sectionhead"><div><p class="eyebrow">HORARIOS DISPONIBLES</p><h2 id="selectedLabel">Citas del día</h2></div><button class="goldbtn" id="newAppt">＋ Agendar</button></div><div id="slots" class="slots"></div></section>
+<section class="footnote">Los cambios se sincronizan cuando ambos dispositivos tienen conexión a internet.</section>
+</main>
+<div class="modal hidden" id="modal"><div class="dialog"><div class="dialoghead"><div><p class="eyebrow">VANITÉ · NUEVA CITA</p><h2 id="modalTitle">Agendar cita</h2></div><button class="close" id="close">×</button></div>
+<form id="apptForm"><input type="hidden" id="docId"><label>Fecha<input type="date" id="date" required></label><label>Horario<select id="time"></select></label><label>Nombre de la clienta<input id="client" maxlength="70" placeholder="Nombre" required></label><label>Servicio / notas<textarea id="notes" rows="2" maxlength="300" placeholder="Diseño, servicio o indicaciones"></textarea></label><label>Foto de referencia <span class="muted">(opcional, se comprime para ahorrar espacio)</span><input type="file" id="photo" accept="image/*" capture="environment"></label><div id="preview"></div><div class="actions"><button type="button" class="delete hidden" id="delete">Eliminar cita</button><button class="goldbtn" type="submit" id="save">Guardar cita</button></div></form></div></div>
+<div class="notice hidden" id="notice"></div>
+<footer>VANITÉ <span>✦</span> NAILS BAR SPA</footer>
+<script type="module" src="app.js"></script>
+</body></html>

@@ -1,0 +1,23 @@
+VANITÉ AGENDA — PAQUETE ACTUALIZADO
+
+Incluye calendario compartido, edición y eliminación de citas, nueve horarios (10:00 am a 6:00 pm, uno por hora) y foto opcional comprimida.
+
+IMPORTANTE: este paquete todavía NO está publicado ni autorizado. La configuración Firebase web está integrada, pero debes autorizar expresamente los dos dispositivos antes de usar datos reales.
+
+SEGURIDAD Y ACCESO
+1) La app inicia sesión anónimamente en Firebase. En cada teléfono abre la app publicada y, después de cargar, se puede consultar el UID desde Firebase Console > Authentication > Usuarios. Identifica el usuario anónimo creado en Android y el creado en iPhone.
+2) Copia ambos UID y reemplaza PEGA_AQUI_UID_ANDROID y PEGA_AQUI_UID_IPHONE en firestore.rules.txt.
+3) Firebase Console > Firestore Database > Reglas: reemplaza las reglas actuales por el contenido ya actualizado y pulsa Publicar.
+4) No publiques reglas abiertas del tipo allow read, write: if true. No compartas el enlace hasta que los dos UID estén autorizados.
+
+FOTOGRAFÍAS
+Para evitar Firebase Storage (que en proyectos nuevos puede requerir Blaze), esta versión reduce las imágenes y las guarda como datos dentro de cada documento de cita en Firestore. Esto es apropiado para fotos pequeñas y pocas citas, pero tiene límites de tamaño/cupo y NO sustituye un almacenamiento de fotos de gran volumen. Si una imagen no se guarda, prueba con una foto más pequeña.
+
+PUBLICACIÓN
+Los archivos son estáticos (index.html, styles.css, app.js y manifest.webmanifest). Súbelos a un hosting HTTPS estático. Después agrega el dominio publicado en Firebase Console > Authentication > Configuración > Dominios autorizados. No hace falta npm ni instalar nada en los teléfonos. El hosting debe servir index.html en la raíz.
+
+NOTAS
+- La clave apiKey de Firebase que aparece en app.js es la configuración pública de la app web; la protección depende de Authentication y las reglas de Firestore.
+- Las sesiones anónimas se guardan en el navegador. No borres los datos del sitio ni cambies de navegador/dispositivo sin volver a autorizar el nuevo UID.
+- Si tu jefa abre la app en Safari y luego la agrega a pantalla de inicio, debe usar siempre ese mismo acceso/navegador.
+- Antes de usar con clientas reales, prueba citas y fotos en ambos teléfonos.
